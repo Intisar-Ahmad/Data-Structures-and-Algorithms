@@ -3,6 +3,12 @@
         "*": false,
         "plaintext": false,
         "markdown": false,
-        "scminput": false
+        "scminput": false,
+        "cpp": false
+    },
+    "files.associations": {
+        "algorithm": "cpp",
+        "format": "cpp",
+        "iostream": "cpp"
     }
 }
