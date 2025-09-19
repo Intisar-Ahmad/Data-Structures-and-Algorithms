@@ -9,6 +9,7 @@
     "files.associations": {
         "algorithm": "cpp",
         "format": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "new": "cpp"
     }
 }
