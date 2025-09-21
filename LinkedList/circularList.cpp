@@ -25,11 +25,10 @@ public:
         Node *newNode = new Node();
         newNode->data = element;
 
-        if (!head)
+        if (!head) 
         {
             head = newNode;
             end = newNode;
-            return;
         }
         else
         {
