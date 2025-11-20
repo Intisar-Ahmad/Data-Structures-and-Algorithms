@@ -7,21 +7,21 @@ using namespace std;
 void selectionSort(vector<int> &array)
 {
     int size = array.size();
-    int max = INT_MAX;
-    int maxIndex = -1;
+    int min = INT_MAX;
+    int minIndex = -1;
     for (int i = 0; i < size; i++)
     {
-        max = INT_MAX;
+        min = INT_MAX;
         for (int j = i; j < size; j++)
         {
-            if (array[j] < max)
+            if (array[j] < min)
             {
-                max = array[j];
-                maxIndex = j;
+                min = array[j];
+                minIndex = j;
             }
         }
-        array[maxIndex] = array[i];
-        array[i] = max;
+        array[minIndex] = array[i];
+        array[i] = min;
     }
 }
 
