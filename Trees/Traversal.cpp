@@ -37,6 +37,22 @@ void inOrder(Node* root){
     inOrder(root->right);
 }
 
+// pre-order traversal
+void preOrder(Node* root){
+    if(!root) return;
+    cout << root->data << " ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+// post order traversal
+void postOrder(Node* root){
+    if(!root) return;
+    postOrder(root->left);
+    postOrder(root->right);
+    cout << root->data << " ";
+}
+
 
 int main() {
     Node* root = new Node(5); 
@@ -47,7 +63,15 @@ int main() {
     insertNode(root,6);
     insertNode(root,7);
 
+    cout << "in-order\n";
     inOrder(root);
+    cout << endl;
+    cout << "pre-order\n";
+    preOrder(root);
+    cout << endl;
+    cout << "post-order\n";
+    postOrder(root);
+    cout << endl;
 
     return 0;
 }
