@@ -1,1 +1,6 @@
-*.exe
+# Ignore everything
+*
+
+# But keep all .cpp and .md files
+!*.cpp
+!*.md
