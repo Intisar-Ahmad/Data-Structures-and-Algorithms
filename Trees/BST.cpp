@@ -100,31 +100,33 @@ Node* findMin(Node* root) {
 }
 
 // deleting from a BST
-Node* deleteNode(Node* root, int key) {
+Node* deleteNode(Node* root, int data) {
+    if(!root) return root;
 
-    if (key < root->data) {
-        root->left = deleteNode(root->left, key);
+    if(data < root->data){
+        root->left = deleteNode(root->left,data);
     }
-    else if (key > root->data) {
-        root->right = deleteNode(root->right, key);
+    else if(data > root->data){
+        root->right = deleteNode(root->right,data);
     }
-    else {
+    else{
         // Node found
-        if (!root->left) {
+        if(!root->left){
             Node* temp = root->right;
             delete root;
             return temp;
         }
-        else if (!root->right) {
+        else if(!root->right){
             Node* temp = root->left;
             delete root;
             return temp;
         }
-
-        // Two children
-        Node* temp = findMin(root->right);
-        root->data = temp->data;
-        root->right = deleteNode(root->right, temp->data);
+        else{
+            // Both children exist
+            Node* temp = findMin(root->right);
+            root->data = temp->data;
+            root->right = deleteNode(root->right,temp->data);
+        }
     }
     return root;
 }
@@ -159,7 +161,7 @@ int main() {
 
     inOrder(root);
     cout << endl;
-    root = deleteNode(root,7);
+    root = deleteNode(root,4);
     inOrder(root);
     cout << endl;
     return 0;
