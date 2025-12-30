@@ -1,4 +1,5 @@
 # Ignore everything
+*.exe
 *
 
 # But keep all .cpp and .md files
