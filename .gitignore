@@ -1,0 +1,14 @@
+# Ignore all files
+*
+
+# Do NOT ignore directories (so Git can look inside them)
+!*/
+
+# But keep your specific file types
+!*.cpp
+!*.md
+!.gitignore
+# Explicitly ignore compiled binaries (just to be safe)
+*.exe
+*.out
+*.o
