@@ -6,6 +6,7 @@
 
 # But keep your specific file types
 !*.cpp
+!*.c
 !*.md
 !.gitignore
 # Explicitly ignore compiled binaries (just to be safe)
