@@ -41,6 +41,33 @@ HashTable* create_table() {
 }
 
 
+
+void insert(HashTable *table, const char *key, int value) {
+    unsigned int index = hash(key);
+    
+    //  Check if the key already exists in the bucket
+    Node *current = table->buckets[index];
+    while (current != NULL) {
+        if (strcmp(current->key, key) == 0) {
+            current->value = value; // Update existing key
+            return;
+        }
+        current = current->next;
+    }
+
+    // If key doesn't exist, create a new node (Insert case)
+    Node *new_node = malloc(sizeof(Node));
+    if (new_node == NULL) return; 
+
+    new_node->key = strdup(key); // Copy the string so it persists
+    new_node->value = value;
+    
+    // Insert at the head of the list (Fastest way)
+    new_node->next = table->buckets[index];
+    table->buckets[index] = new_node;
+}
+
+
 int main(int argc,char **argv/* yes i do this now too. cuz I am cool AF */) {
     HashTable *ht = create_table();
 
