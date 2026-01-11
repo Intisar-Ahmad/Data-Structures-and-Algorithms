@@ -1,9 +1,11 @@
 #include <iostream>
 #include<vector>
+
+
 using namespace std;
 
 int secondLargestElement(vector<int> array){
-    int max = INT_MIN;
+    int max = -100000;
     int secondMax = max;
     for (int i = 0; i < array.size(); i++)
     {
