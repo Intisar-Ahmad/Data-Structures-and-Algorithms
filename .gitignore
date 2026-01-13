@@ -9,6 +9,7 @@
 !*.c
 !*.md
 !.gitignore
+!*.js
 # Explicitly ignore compiled binaries (just to be safe)
 *.exe
 *.out

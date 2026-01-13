@@ -6,18 +6,22 @@
 using namespace std;
 
 void nextPermutation(vector<int>& vec) {
-        int pivot = vec.size() - 1;
-        for(int i = vec.size() - 2;i>=0;i--){
+     int n = vec.size();
+     
+        if (n == 0) return;
+        int pivot = n - 1;
+      
+        for(int i = n - 2;i>=0;i--){
             if(vec[i]<vec[i+1]){
                 pivot = i;
                 break;
             }
         }
-        if(pivot==vec.size() - 1){
+        if(pivot==n - 1){
             reverse(vec.begin(),vec.end());
         }
-        int RME = vec.size() - 1;
-        for(int i = vec.size() - 1;i>=pivot;i--){
+        int RME = n - 1;
+        for(int i = n - 1;i>pivot;i--){
             if(vec[i] > vec[pivot]){
                 RME = i;
                 break;
