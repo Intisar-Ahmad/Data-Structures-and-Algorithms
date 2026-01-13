@@ -4,41 +4,43 @@
 
 using namespace std;
 
-bool canPlace(vector<int>& stalls, int cows, int dist)
+bool isValid(vector<int>& stalls, int cows, int dist)
 {
-    int count = 1;           // first cow placed
-    int lastPos = stalls[0];
+   int countCows = cows - 1;
+   int n = stalls.size();
+    int lastCowPos = stalls[0];
 
-    for(int i = 1; i < stalls.size(); i++)
+
+    for (int i = 1; i < n; i++)
     {
-        if(stalls[i] - lastPos >= dist)
-        {
-            count++;
-            lastPos = stalls[i];
+        if(stalls[i] - lastCowPos >= dist){
+            countCows--;
+            lastCowPos = stalls[i];        
         }
     }
-    return count >= cows;
+
+    return (countCows > 0)?false:true;
+    
 }
 
 int aggressiveCows(vector<int>& stalls, int cows)
 {
     sort(stalls.begin(), stalls.end());
 
-    int low = 1;
-    int high = stalls.back() - stalls.front();
+    int st = 1;
+    int end = stalls.back() - stalls.front();
     int ans = 0;
 
-    while(low <= high)
+    while(st <= end)
     {
-        int mid = low + (high - low) / 2;
-
-        if(canPlace(stalls, cows, mid))
-        {
+        int mid = st + (end - st)/2;
+        if(isValid(stalls,cows,mid)){
             ans = mid;
-            low = mid + 1;
+            st = mid + 1;
         }
-        else
-            high = mid - 1;
+        else{
+            end = mid - 1;
+        }
     }
     return ans;
 }
