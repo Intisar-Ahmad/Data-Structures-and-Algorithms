@@ -21,10 +21,17 @@ string reverseWords(string s)
         {
             word += s[i++];
         }
-        ans = " " +  word  + ans;
+
+        if(ans.length() > 0){
+
+            ans = word + " " + ans;
+        }
+        else{
+            ans = word + ans;
+        }
     }
 
-    ans.erase(ans.begin(),ans.begin()+1);
+    // ans.erase(ans.begin(),ans.begin()+1);
     return ans;
 }
 
