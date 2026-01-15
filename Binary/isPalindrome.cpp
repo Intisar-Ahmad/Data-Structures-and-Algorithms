@@ -2,11 +2,12 @@
 #include <vector>
 #include <algorithm>
 #include<climits>
-
 using namespace std;
-
-  int reverse(int x) {
+    bool isPalindrome(int x) {
         int revNum = 0;
+        int copy = x;
+
+        if(x < 0) return false;
         while(x!=0){
             int digit = x%10;
 
@@ -16,8 +17,10 @@ using namespace std;
             x/=10;
         }
 
-        return revNum;
+        return revNum==copy;
+
     }
+
 
 int main() {
  
