@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include<climits>
+#include <climits>
 
 using namespace std;
 
-int maxSumInRow(vector<vector<int>> arr){
+int maxSumInRow(vector<vector<int>> arr)
+{
     int n = arr.size();
     int maxSum = INT_MIN;
     for (int i = 0; i < n; i++)
@@ -14,21 +15,37 @@ int maxSumInRow(vector<vector<int>> arr){
         int currSum = 0;
         for (int j = 0; j < m; j++)
         {
-            currSum+=arr[i][j];
+            currSum += arr[i][j];
         }
-        maxSum = max(currSum,maxSum);
-        
+        maxSum = max(currSum, maxSum);
     }
     return maxSum;
 }
 
-int main() {
-    vector<vector<int>> arr = {
-        {1,2,3},
-        {2,6,2},
-        {5-1,9}
-    };
+int maxSumInCol(vector<vector<int>> arr)
+{
+    int n = arr.size();
+    int m = arr[0].size();
+    int maxSum = INT_MIN;
+    for (int i = 0; i < m; i++)
+    {
+        int currSum = 0;
+        for (int j = 0; j < n; j++)
+        {
+            currSum+=arr[j][i];
+        }
+          maxSum = max(currSum, maxSum);
+    }
+    return maxSum;
+}
 
-    cout << maxSumInRow(arr) << endl;
+int main()
+{
+    vector<vector<int>> arr = {
+        {1, 2, 3},
+        {2, 6, 2},
+        {5 , -1, 9}};
+
+    cout << maxSumInCol(arr) << endl;
     return 0;
 }
