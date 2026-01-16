@@ -32,11 +32,35 @@ int maxSumInCol(vector<vector<int>> arr)
         int currSum = 0;
         for (int j = 0; j < n; j++)
         {
-            currSum+=arr[j][i];
+            currSum += arr[j][i];
         }
-          maxSum = max(currSum, maxSum);
+        maxSum = max(currSum, maxSum);
     }
     return maxSum;
+}
+
+int diagonalSum(vector<vector<int>> arr)
+{
+    int n = arr.size();
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i][i];
+    }
+
+    return sum;
+}
+
+int SecondaryDiagonalSum(vector<vector<int>> arr)
+{
+    int n = arr.size();
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i][n-i-1];
+    }
+
+    return sum;
 }
 
 int main()
@@ -44,8 +68,8 @@ int main()
     vector<vector<int>> arr = {
         {1, 2, 3},
         {2, 6, 2},
-        {5 , -1, 9}};
+        {5, -1, 9}};
 
-    cout << maxSumInCol(arr) << endl;
+    cout << SecondaryDiagonalSum(arr) << endl;
     return 0;
 }
