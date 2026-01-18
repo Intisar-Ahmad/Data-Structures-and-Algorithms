@@ -5,7 +5,7 @@
 using namespace std;
 
 
-void print(vector<int> arr,vector<int> ans,int i){
+void print(vector<int> &arr,vector<int> &ans,int i){
     if(i == arr.size()){
         cout << "{ ";
         for (auto &&el : ans)
