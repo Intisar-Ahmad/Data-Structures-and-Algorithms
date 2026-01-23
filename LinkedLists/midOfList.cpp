@@ -32,6 +32,17 @@ using namespace std;
         return temp;
     }
 
+       ListNode* middleNode(ListNode* head) {
+        ListNode* s = head;
+        ListNode* f = head;
+
+      while(f != nullptr && f->next != nullptr){
+    s = s->next;
+    f = f->next->next;
+}
+        return s;
+    }
+
 int main() {
  
     return 0;
