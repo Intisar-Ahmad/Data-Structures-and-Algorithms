@@ -12,7 +12,7 @@ void func(vector<int> arr){
     vector<int> ans;
     for (int i = 0; i < n; i++)
     {
-        if(s.size() > 0 && arr[s.top()] >= arr[i]){
+        while(s.size() > 0 && arr[s.top()] >= arr[i]){
             s.pop();
         }
 
